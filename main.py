@@ -3,7 +3,7 @@ import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader, Subset
 from sklearn.metrics import precision_score, f1_score
-from data import CUB
+from data import HandWritten
 from loss_function import get_loss,forward_label
 from model import RCMCL
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
                         help='learning rate')
     args = parser.parse_args()
 
-    dataset = CUB()
+    dataset = HandWritten()
     num_samples = len(dataset)
     num_classes = dataset.num_classes
     num_views = dataset.num_views

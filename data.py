@@ -73,13 +73,11 @@ class MultiViewDataset(Dataset):
             self.X[v][i] = records[(self.Y[i] + 1) % self.num_classes][v]
         pass
 
-def CUB():
-    data_path = "data/CUB.mat"
+def HandWritten():
+    data_path = "data/handwritten.mat"
     data = sio.loadmat(data_path)
     data_X = data['X'][0]
-    data_Y = data['gt']
-    for v in range(len(data_X)):
-        data_X[v] = data_X[v].T
-    return MultiViewDataset("CUB", data_X, data_Y)
+    data_Y = data['Y']
+    return MultiViewDataset("HandWritten", data_X, data_Y)
 
 
